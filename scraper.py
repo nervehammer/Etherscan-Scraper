@@ -13,7 +13,7 @@ from bs4 import BeautifulSoup
 def scraper(num_pages=1, req_delay=0.1):
   timestamp = datetime.datetime.now().strftime ("%Y%m%d_%H%M%S")
   
-  print("%d pages to parse with delay of %d seconds between each page" % (num_pages, req_delay))
+  print("%d pages to parse with delay of %f seconds between each page" % (num_pages, req_delay))
   api_url = "https://etherscan.io/contractsVerified/"
   
   with open('VerifiedContracts-'+timestamp+'.csv', 'w') as csvfile:
@@ -45,7 +45,7 @@ def scraper(num_pages=1, req_delay=0.1):
 
 def main():
   if len(sys.argv) > 2:
-    scraper(int(sys.argv[1]), int(sys.argv[2]))
+    scraper(int(sys.argv[1]), float(sys.argv[2]))
   elif len(sys.argv) == 2:
     scraper(int(sys.argv[1]))
   else:
