@@ -1,5 +1,5 @@
 # Etherscan-Scraper
-Scrap etherscan.io for <a href=https://etherscan.io/contractsVerified>verified contract</a> and outputs csv containing address, dateverified, Eth balance, txn count
+Scrap etherscan.io for <a href=https://etherscan.io/contractsVerified>verified contracts</a> and outputs csv containing address, dateverified, Eth balance, txn count
 
 ## Usage
 
@@ -23,4 +23,7 @@ Scrap etherscan.io for <a href=https://etherscan.io/contractsVerified>verified c
     $ python scraper.py 9 2
     ```
 
-3. output will be in current directory with timestamp named e.g. `VerifiedContracts-20180927_111610.csv` 
+3. output will be in current directory with current timestamp e.g. `VerifiedContracts-20180927_111610.csv` 
+
+## Warning 
+Using this script to scrap etherscan.io is against their Terms of Service. It is for educational purpose. Use it at your own risk. I am not liable for any damages. 
