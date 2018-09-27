@@ -1,19 +1,20 @@
-# I am not liable for any damage 
-# Use it at your own risk !!
-# Its against Etherscan's TOS 
+# i am not liable for any damage 
+# use it at your own risk !!
+# its against Etherscan's TOS 
 # your ip might get ban for requesting too many times
 
 import csv
 import sys
-import requests
 import datetime
+import requests
 from time import sleep
 from bs4 import BeautifulSoup
 
-def scraper(num_pages=1):
+def scraper(num_pages=1, req_delay=0.1):
   timestamp = datetime.datetime.now().strftime ("%Y%m%d_%H%M%S")
+  
+  print("%d pages to parse with delay of %d seconds between each page" % (num_pages, req_delay))
   api_url = "https://etherscan.io/contractsVerified/"
-  req_delay = 0.15
   
   with open('VerifiedContracts-'+timestamp+'.csv', 'w') as csvfile:
     fieldnames = ['addr', 'contract_name', 'compiler', 'balance', 'tx_count', 'date_verified']
@@ -43,7 +44,9 @@ def scraper(num_pages=1):
         })
 
 def main():
-  if len(sys.argv) == 2:
+  if len(sys.argv) > 2:
+    scraper(int(sys.argv[1]), int(sys.argv[2]))
+  elif len(sys.argv) == 2:
     scraper(int(sys.argv[1]))
   else:
     scraper()
